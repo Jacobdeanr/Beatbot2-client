@@ -1,6 +1,5 @@
 from __future__ import annotations
 from cli.models import Config, QueueItem, ResolvedTrack
-import pprint
 from typing import Any
 
 class CliView:
@@ -31,7 +30,7 @@ class CliView:
     def print_error(self, msg: str, payload: dict | None = None) -> None:
         print(msg)
         if payload is not None:
-            pprint.pp(payload)
+            print(payload)
 
     def print_info(self, msg: str) -> None:
         print(msg)
@@ -40,7 +39,7 @@ class CliView:
         head = f"{prefix}\n" if prefix else ""
         if item.id:
             #print(f"value={item.value} - {head}- kind={item.kind} id={item.id}")
-            print(f"{item.value}")
+            print(f"{head} - {item.value}")
         else:
             print(f"value={item.value} - {head}- kind={item.kind}")
 
